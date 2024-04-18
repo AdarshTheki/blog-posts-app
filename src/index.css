@@ -1,0 +1,57 @@
+/* Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+Global CSS
+*/
+
+:root {
+    --primary: #ff6464;
+    --secondary: #00a8cc;
+    --dark: #212544;
+    --light: #e1e0f1;
+    --white: #ffffff;
+}
+
+.dark-mode {
+    --white: #21243d !important;
+    --dark: #e5e5e5 !important;
+    background: var(--white) !important;
+    transition: background 1s linear;
+}
+
+body {
+    min-height: 100vh;
+}
+
+a {
+    color: var(--dark);
+}
+
+.main-container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px;
+    overflow: hidden;
+}
+
+input,
+textarea {
+    display: block;
+    border: 1px solid var(--light);
+    width: 100%;
+    border-radius: 4px;
+    padding: 5px 20px;
+    outline: none;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: capitalize;
+}
