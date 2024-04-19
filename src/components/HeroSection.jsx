@@ -25,7 +25,7 @@ const HeroSection = () => {
                     <img src={owner} alt='owner image' className='block mx-auto w-2/5 ' />
                 </div>
             </div>
-            <Button leftIcon={<IoMdDownload/>} className='text-white bg-[var(--primary)]'>Download Resume</Button>
+            <Button leftIcon={<IoMdDownload/>} className='text-white bg-primary'>Download Resume</Button>
         </div>
     );
 };

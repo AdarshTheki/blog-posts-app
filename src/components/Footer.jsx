@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function Footer() {
     return (
-        <div className='text-[var(--dark)] main-container text-center'>
+        <div className='text-dark main-container text-center'>
             <ul className='flex space-x-10 mx-auto w-fit py-5'>
                 <li>
                     <NavLink to='https://www.linkedin.com/in/adarshvermadeveloper' target='__blank'>
