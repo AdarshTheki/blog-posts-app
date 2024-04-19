@@ -50,7 +50,7 @@ const Contact = () => {
                         <textarea id='message' rows='5'></textarea>
                     </div>
                     <div>
-                        <Button leftIcon={<FaCloudUploadAlt/>} className='bg-[var(--primary)] rounded text-white font-semibold'>
+                        <Button leftIcon={<FaCloudUploadAlt/>} className='bg-primary rounded text-white font-semibold'>
                             Submit
                         </Button>
                     </div>

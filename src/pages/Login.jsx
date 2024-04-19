@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text } from '../utils/Text';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { Button } from '../utils/Button';
 import { authService } from '../appwrite/authService';
 import { loginUser } from '../redux/authSlice';
 
@@ -10,18 +9,27 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const [loading, setLoading] = useState(false);
+    const [userData, setUserData] = useState({ email: '', password: '' });
+
     const submitHandler = async (e) => {
         e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
+        setLoading(true);
+        
+        const { email, password } = userData;
+
         if (!(email || password)) {
             alert('Please Fill Your Inputs');
         } else {
             const user = await authService.login({ email, password });
-            const currUser = user.$id ? user : null;
-            dispatch(loginUser(currUser));
-            navigate('/');
+            if (!user?.$id) {
+                alert('Invalid User Please Try Again!');
+            } else {
+                dispatch(loginUser(user));
+                navigate('/');
+            }
         }
+        setLoading(false);
     };
 
     return (
@@ -31,7 +39,7 @@ const Login = () => {
             </Text>
             <Text>
                 Don't have an account ?{' '}
-                <NavLink className='underline font-medium' to='/register'>
+                <NavLink className='underline font-medium hover:text-secondary' to='/register'>
                     Register Here
                 </NavLink>
             </Text>
@@ -42,6 +50,10 @@ const Login = () => {
                         name='email'
                         type='email'
                         id='email'
+                        value={userData.email}
+                        onChange={(e) =>
+                            setUserData((prev) => ({ ...prev, email: e.target.value }))
+                        }
                         placeholder='Enter your email address...'
                     />
                 </div>
@@ -51,12 +63,21 @@ const Login = () => {
                         name='password'
                         type='password'
                         id='password'
+                        value={userData.password}
+                        onChange={(e) =>
+                            setUserData((prev) => ({ ...prev, password: e.target.value }))
+                        }
                         placeholder='Enter your password'
                     />
+                    {!!userData.password && (
+                        <span className='text-[var(--dark)] text-xs'>
+                            show password : {userData.password}
+                        </span>
+                    )}
                 </div>
-                <Button className='bg-[var(--primary)] text-white rounded px-10 mx-auto'>
-                    Login Now
-                </Button>
+                <button className='bg-primary hover:bg-primary/80 py-2 text-white rounded px-10 mx-auto'>
+                    {loading ? 'Loading...' : 'Login'}
+                </button>
             </form>
         </div>
     );
