@@ -4,5 +4,6 @@ import HeroSection from './HeroSection';
 import PostForm from './PostForm';
 import PostImgSection from './PostImgSection';
 import PostSection from './PostSection';
+import AuthLayout from './AuthLayout';
 
-export { Footer, Header, HeroSection, PostForm, PostImgSection, PostSection };
+export { Footer, AuthLayout, Header, HeroSection, PostForm, PostImgSection, PostSection };

@@ -1,3 +1,6 @@
+/* Import google Font  */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 /* Tailwind CSS */
 @tailwind base;
 @tailwind components;
@@ -7,51 +10,57 @@
 Global CSS
 */
 
-:root {
-    --primary: #ff6464;
-    --secondary: #00a8cc;
-    --dark: #212544;
-    --light: #e1e0f1;
-    --white: #ffffff;
-}
+@layer base {
+    :root {
+        --primary: #FF5193;
+        --secondary: #0095F1;
+        --dark: #212544;
+        --light: #e1e0f1;
+        --white: #ffffff;
+    }
 
-.dark-mode {
-    --white: #21243d !important;
-    --dark: #e5e5e5 !important;
-    background: var(--white) !important;
-    transition: background 1s linear;
-}
+    .dark-mode {
+        --white: #21243d !important;
+        --dark: #e5e5e5 !important;
+        background: var(--white) !important;
+        transition: background 1s linear;
+    }
 
-body {
-    min-height: 100vh;
-}
+    body {
+        min-height: 100vh;
+    }
 
-a {
-    color: var(--dark);
-}
+    a {
+        color: var(--dark);
+    }
 
-.main-container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 20px;
-    overflow: hidden;
-}
+    .main-container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 0 20px;
+        overflow: hidden;
+    }
 
-input,
-textarea {
-    display: block;
-    border: 1px solid var(--light);
-    width: 100%;
-    border-radius: 4px;
-    padding: 5px 20px;
-    outline: none;
-}
+    input,
+    textarea {
+        display: block;
+        border: 1px solid var(--light);
+        width: 100%;
+        border-radius: 4px;
+        padding: 5px 20px;
+        outline-offset: 2px;
+    }
+    input:focus-within,
+    textarea:focus-within {
+        outline: 2px solid var(--secondary);
+    }
 
-label {
-    display: block;
-    font-weight: 600;
-    color: var(--dark);
-    font-size: 1rem;
-    cursor: pointer;
-    text-transform: capitalize;
+    label {
+        display: block;
+        font-weight: 400;
+        color: var(--dark);
+        font-size: 1rem;
+        cursor: pointer;
+        text-transform: capitalize;
+    }
 }

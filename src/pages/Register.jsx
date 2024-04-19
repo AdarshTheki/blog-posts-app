@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Text } from '../utils/Text';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { Button } from '../utils/Button';
 import { authService } from '../appwrite/authService';
 import { loginUser } from '../redux/authSlice';
 import { useDispatch } from 'react-redux';
@@ -10,7 +9,8 @@ const Register = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const [user, setUser] = useState({
+    const [loading, setLoading] = useState(false);
+    const [userData, setUserData] = useState({
         name: '',
         email: '',
         password: '',
@@ -18,18 +18,22 @@ const Register = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        const { name, password, email } = user;
+        setLoading(true);
+
+        const { name, password, email } = userData;
+
         if (!(email || password || name)) {
             alert('Please Fill Your Inputs');
         } else {
             const user = await authService.register({ email, password, name });
-            dispatch(loginUser(user));
-            navigate('/')
+            if (!user?.$id) {
+                alert('Invalid User Please Try Again!');
+            } else {
+                dispatch(loginUser(user));
+                navigate('/');
+            }
         }
-    };
-
-    const changeHandler = (e) => {
-        setUser({ ...user, [e.target.name]: e.target.value });
+        setLoading(false);
     };
 
     return (
@@ -39,7 +43,7 @@ const Register = () => {
             </Text>
             <Text>
                 You have an account ?{' '}
-                <NavLink className='underline font-medium' to='/login'>
+                <NavLink className='underline font-medium hover:text-secondary' to='/login'>
                     Login In
                 </NavLink>
             </Text>
@@ -50,8 +54,8 @@ const Register = () => {
                         name='name'
                         type='text'
                         id='username'
-                        value={user.name}
-                        onChange={changeHandler}
+                        value={userData.name}
+                        onChange={(e) => setUserData((prev) => ({ ...prev, name: e.target.value }))}
                         placeholder='Enter your full name'
                     />
                 </div>
@@ -60,8 +64,10 @@ const Register = () => {
                     <input
                         name='email'
                         type='email'
-                        value={user.email}
-                        onChange={changeHandler}
+                        value={userData.email}
+                        onChange={(e) =>
+                            setUserData((prev) => ({ ...prev, email: e.target.value }))
+                        }
                         id='email'
                         placeholder='Enter your email address...'
                     />
@@ -72,14 +78,21 @@ const Register = () => {
                         name='password'
                         type='password'
                         id='password'
-                        value={user.password}
-                        onChange={changeHandler}
+                        value={userData.password}
+                        onChange={(e) =>
+                            setUserData((prev) => ({ ...prev, password: e.target.value }))
+                        }
                         placeholder='Enter your password'
                     />
+                    {!!userData.password && (
+                        <span className='text-[var(--dark)] text-xs'>
+                            show password : {userData.password}
+                        </span>
+                    )}
                 </div>
-                <Button className='bg-[var(--primary)] text-white rounded px-10 mx-auto'>
-                    Register Now
-                </Button>
+                <button className='bg-primary hover:bg-primary/80 text-white rounded px-10 py-2 mx-auto'>
+                    {loading ? 'loading...' : 'Register Now'}
+                </button>
             </form>
         </div>
     );
