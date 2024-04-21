@@ -10,4 +10,4 @@ const Text = ({ children, className = '', as }, props) => {
         </Component>
     );
 };
-export { Text };
+export default Text;
