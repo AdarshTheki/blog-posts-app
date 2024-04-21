@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Text } from '../utils/Text';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { authService } from '../appwrite/authService';
-import { loginUser } from '../redux/authSlice';
 import { useDispatch } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { authService } from '../appwrite';
+import { loginUser } from '../redux/authSlice';
+import { Text } from '../utils';
 
 const Register = () => {
     const dispatch = useDispatch();

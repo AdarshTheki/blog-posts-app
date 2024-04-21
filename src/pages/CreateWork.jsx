@@ -1,9 +1,8 @@
 import React, { useRef, useState, useCallback, useEffect } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { useNavigate } from 'react-router-dom';
-import { workService } from '../appwrite/workService';
-import { Button } from '../utils/Button';
-import { Text } from '../utils/Text';
+import { workService } from '../appwrite';
+import { Text, Button } from '../utils';
 
 const PostForm = () => {
     const editorRef = useRef(null);

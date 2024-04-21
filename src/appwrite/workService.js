@@ -4,7 +4,7 @@ const databaseId = '661e6aa940652623d1a0';
 const workId = '661e6c875e376815bc4e';
 const bucketId = '661e742eb75e38d3c042';
 
-class WorkService {
+export class WorkService {
     client = new Client();
     databases;
     bucket;
@@ -83,4 +83,3 @@ class WorkService {
     }
 }
 
-export const workService = new WorkService();

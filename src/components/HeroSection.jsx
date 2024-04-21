@@ -1,8 +1,7 @@
 import React from 'react';
-import { Text } from '../utils/Text';
-import { Button } from '../utils/Button';
-import owner from '../assets/images/Ellipse.png';
 import { IoMdDownload } from 'react-icons/io';
+import owner from '../assets/images/Ellipse.png';
+import { Button, Text } from '../utils';
 
 const HeroSection = () => {
     return (
@@ -25,7 +24,9 @@ const HeroSection = () => {
                     <img src={owner} alt='owner image' className='block mx-auto w-2/5 ' />
                 </div>
             </div>
-            <Button leftIcon={<IoMdDownload/>} className='text-white bg-primary'>Download Resume</Button>
+            <Button leftIcon={<IoMdDownload />} className='text-white bg-primary'>
+                Download Resume
+            </Button>
         </div>
     );
 };

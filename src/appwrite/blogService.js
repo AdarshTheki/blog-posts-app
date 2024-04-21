@@ -3,7 +3,7 @@ import { Client, Query, Databases } from 'appwrite';
 const databaseId = '661e6aa940652623d1a0';
 const blogId = '661e6abe1e5719422b7b';
 
-class BlogService {
+export class BlogService {
     client = new Client();
     databases;
 
@@ -53,4 +53,3 @@ class BlogService {
     }
 }
 
-export const blogService = new BlogService();

@@ -3,8 +3,8 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { MdAdd } from 'react-icons/md';
 import { FaChevronLeft } from 'react-icons/fa';
-import PostImgSection from '../components/PostImgSection';
-import { Text } from '../utils/Text';
+import { PostImgSection } from '../components';
+import { Text } from '../utils';
 
 const FeatureWorks = () => {
     const navigate = useNavigate();

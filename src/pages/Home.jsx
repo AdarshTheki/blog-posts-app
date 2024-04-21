@@ -1,10 +1,9 @@
 import React from 'react';
-import { Text } from '../utils/Text';
-import HeroSection from '../components/HeroSection';
-import PostSection from '../components/PostSection';
-import PostImgSection from '../components/PostImgSection';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { PostImgSection, PostSection, HeroSection } from '../components';
+
+import { Text } from '../utils';
 
 const Home = () => {
     const { blogs, works } = useSelector((state) => state.fetchData);

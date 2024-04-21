@@ -4,7 +4,7 @@ import { MdAdd } from 'react-icons/md';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import PostSection from '../components/PostSection';
-import { Text } from '../utils/Text';
+import { Text } from '../utils';
 
 const Blog = () => {
     const { blogs } = useSelector((state) => state.fetchData);

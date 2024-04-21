@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Button } from '../utils/Button';
 import { MdLightMode } from 'react-icons/md';
-import { useSelector, useDispatch } from 'react-redux';
-import { authService } from '../appwrite/authService';
-import { logoutUser } from '../redux/authSlice';
 import { FaBars } from 'react-icons/fa';
 import { IoMdClose } from 'react-icons/io';
+import { useSelector, useDispatch } from 'react-redux';
+import { authService } from '../appwrite';
+import { logoutUser } from '../redux/authSlice';
+import { Button } from '../utils';
 
 const Header = () => {
     const dispatch = useDispatch();

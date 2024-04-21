@@ -2,9 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUser, logoutUser } from './redux/authSlice';
 import { getBlogs, getWorks } from './redux/fetchDataSlice';
-import { authService } from './appwrite/authService';
-import { blogService } from './appwrite/blogService';
-import { workService } from './appwrite/workService';
+import { authService, blogService, workService } from './appwrite';
 import Routes from './Routes';
 
 const App = () => {
