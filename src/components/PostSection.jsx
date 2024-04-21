@@ -1,7 +1,6 @@
 import React from 'react';
-import { Text } from '../utils/Text';
 import parse from 'html-react-parser';
-import { formattedDate } from '../utils/formateDate';
+import { formattedDate, Text } from '../utils';
 
 const PosterSection = ({ $id, heading, $updatedAt, type, content }) => {
     return (

@@ -1,8 +1,7 @@
 import React from 'react';
-import { Text } from '../utils/Text';
-import { formattedDate } from '../utils/formateDate';
 import parse from 'html-react-parser';
-import { workService } from '../appwrite/workService';
+import { formattedDate, Text } from '../utils';
+import { workService } from '../appwrite';
 
 const PosterImgSection = ({ id, heading, content, $updatedAt, type, image_url }) => {
     const fetchUrl = () => {

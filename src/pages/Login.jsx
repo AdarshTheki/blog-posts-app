@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Text } from '../utils/Text';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { authService } from '../appwrite/authService';
 import { loginUser } from '../redux/authSlice';
+import { authService } from '../appwrite';
+import { Text } from '../utils';
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const Login = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
         setLoading(true);
-        
+
         const { email, password } = userData;
 
         if (!(email || password)) {

@@ -1,6 +1,6 @@
 import { Client, Account, ID } from 'appwrite';
 
-class AuthServices {
+export class AuthServices {
     client = new Client();
     account;
 
@@ -49,5 +49,3 @@ class AuthServices {
         }
     }
 }
-
-export const authService = new AuthServices();

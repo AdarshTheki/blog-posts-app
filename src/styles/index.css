@@ -12,8 +12,8 @@ Global CSS
 
 @layer base {
     :root {
-        --primary: #FF5193;
-        --secondary: #0095F1;
+        --primary: #ff5193;
+        --secondary: #0095f1;
         --dark: #212544;
         --light: #e1e0f1;
         --white: #ffffff;
@@ -39,6 +39,59 @@ Global CSS
         margin: auto;
         padding: 0 20px;
         overflow: hidden;
+    }
+
+    .animate-none {
+        animation: none;
+    }
+
+    .animate-spin {
+        animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    .animate-ping {
+        animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+    @keyframes ping {
+        75%,
+        100% {
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+
+    .animate-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse {
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+        }
+    }
+    .animate-bounce {
+        animation: bounce 1s infinite;
+    }
+    @keyframes bounce {
+        0%,
+        100% {
+            transform: translateY(-25%);
+            animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        }
+        50% {
+            transform: translateY(0);
+            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        }
     }
 
     input,

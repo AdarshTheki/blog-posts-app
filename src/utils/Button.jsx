@@ -12,4 +12,4 @@ const Button = ({ children, leftIcon, rightIcon, className = '', ...props }) => 
     );
 };
 
-export { Button };
+export default Button;

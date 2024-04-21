@@ -3,8 +3,8 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { MdAdd } from 'react-icons/md';
 import { FaChevronLeft } from 'react-icons/fa';
-import PostImgSection from '../components/PostImgSection';
-import { Text } from '../utils/Text';
+import { PostImgSection } from '../components';
+import { Text } from '../utils';
 
 const FeatureWorks = () => {
     const navigate = useNavigate();
@@ -30,11 +30,17 @@ const FeatureWorks = () => {
                     Add Work
                 </NavLink>
             </div>
-            <div>
-                {works?.map((post) => (
-                    <PostImgSection key={post.$id} {...post} />
-                ))}
-            </div>
+            {works.length > 0 ? (
+                <div>
+                    {works?.map((post) => (
+                        <PostImgSection key={post.$id} {...post} />
+                    ))}
+                </div>
+            ) : (
+                <div className='flex justify-center items-center'>
+                    <div className='animate-spin rounded-full h-20 w-20 border-b-2 border-[var(--dark)]'></div>
+                </div>
+            )}
         </div>
     );
 };

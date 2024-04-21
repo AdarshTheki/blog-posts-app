@@ -1,7 +1,6 @@
 import React from 'react';
 import { FaCloudUploadAlt } from 'react-icons/fa';
-import { Text } from '../utils/Text';
-import { Button } from '../utils/Button';
+import { Button, Text } from '../utils';
 
 const Contact = () => {
     return (
@@ -50,7 +49,9 @@ const Contact = () => {
                         <textarea id='message' rows='5'></textarea>
                     </div>
                     <div>
-                        <Button leftIcon={<FaCloudUploadAlt/>} className='bg-primary rounded text-white font-semibold'>
+                        <Button
+                            leftIcon={<FaCloudUploadAlt />}
+                            className='bg-primary rounded text-white font-semibold'>
                             Submit
                         </Button>
                     </div>

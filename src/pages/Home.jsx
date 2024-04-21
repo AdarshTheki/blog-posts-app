@@ -1,10 +1,9 @@
 import React from 'react';
-import { Text } from '../utils/Text';
-import HeroSection from '../components/HeroSection';
-import PostSection from '../components/PostSection';
-import PostImgSection from '../components/PostImgSection';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { PostImgSection, PostSection, HeroSection } from '../components';
+
+import { Text } from '../utils';
 
 const Home = () => {
     const { blogs, works } = useSelector((state) => state.fetchData);
@@ -23,11 +22,17 @@ const Home = () => {
                             View All
                         </NavLink>
                     </div>
-                    <div className='sm:grid grid-cols-2 gap-4'>
-                        {blogs.slice(0, 2).map((post) => (
-                            <PostSection key={post.$id} {...post} />
-                        ))}
-                    </div>
+                    {blogs.length > 0 ? (
+                        <div className='sm:grid grid-cols-2 gap-4'>
+                            {blogs.slice(0, 2).map((post) => (
+                                <PostSection key={post.$id} {...post} />
+                            ))}
+                        </div>
+                    ) : (
+                        <div className='flex justify-center items-center'>
+                            <div className='animate-spin rounded-full h-20 w-20 border-b-2 border-[var(--dark)]'></div>
+                        </div>
+                    )}
                 </div>
             </div>
             <div className='main-container space-y-4'>
@@ -39,11 +44,17 @@ const Home = () => {
                         View All
                     </NavLink>
                 </div>
-                <div>
-                    {works?.slice(0, 3)?.map((post) => (
-                        <PostImgSection key={post.$id} {...post} />
-                    ))}
-                </div>
+                {works?.length > 0 ? (
+                    <div>
+                        {works?.slice(0, 3)?.map((post) => (
+                            <PostImgSection key={post.$id} {...post} />
+                        ))}
+                    </div>
+                ) : (
+                    <div className='flex justify-center items-center'>
+                        <div className='animate-spin rounded-full h-20 w-20 border-b-2 border-[var(--dark)]'></div>
+                    </div>
+                )}
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaTwitterSquare, FaLinkedin, FaGithubSquare } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
+import { FaTwitterSquare, FaLinkedin, FaGithubSquare } from 'react-icons/fa';
 
 export default function Footer() {
     return (

@@ -4,7 +4,7 @@ import { MdAdd } from 'react-icons/md';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import PostSection from '../components/PostSection';
-import { Text } from '../utils/Text';
+import { Text } from '../utils';
 
 const Blog = () => {
     const { blogs } = useSelector((state) => state.fetchData);
@@ -30,13 +30,19 @@ const Blog = () => {
                     Add Blog
                 </NavLink>
             </div>
-            <div>
-                {blogs?.map((blog) => (
-                    <div key={blog.$id} className='mb-8'>
-                        <PostSection {...blog} />
-                    </div>
-                ))}
-            </div>
+            {blogs?.length > 0 ? (
+                <div>
+                    {blogs?.map((blog) => (
+                        <div key={blog.$id} className='mb-8'>
+                            <PostSection {...blog} />
+                        </div>
+                    ))}
+                </div>
+            ) : (
+                <div className='flex justify-center items-center'>
+                    <div className='animate-spin rounded-full h-20 w-20 border-b-2 border-[var(--dark)]'></div>
+                </div>
+            )}
         </div>
     );
 };
