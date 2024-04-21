@@ -1,9 +1,17 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import AuthLayout from './components/AuthLayout';
-import { Home, Blog, Work, Contact, Register, Login, CreateBlog, CreateWork } from './pages';
+import { Header, Footer, AuthLayout } from './components';
+import {
+    Home,
+    Blog,
+    Work,
+    Contact,
+    Register,
+    Login,
+    CreateBlog,
+    CreateWork,
+    NotFoundPage,
+} from './pages';
 
 const Pages = () => {
     return (
@@ -22,6 +30,7 @@ const Pages = () => {
                             <Route path='/create/blog' element={<CreateBlog />} />
                             <Route path='/create/work' element={<CreateWork />} />
                         </Route>
+                        <Route path='*' element={<NotFoundPage />} />
                     </Routes>
                 </div>
                 <Footer />

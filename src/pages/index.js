@@ -6,5 +6,6 @@ import Register from './Register';
 import Work from './Work';
 import CreateBlog from './CreateBlog';
 import CreateWork from './CreateWork';
+import NotFoundPage from './NotFoundPage';
 
-export { Blog, Contact, CreateBlog, CreateWork, Home, Login, Register, Work };
+export { Blog, Contact, NotFoundPage, CreateBlog, CreateWork, Home, Login, Register, Work };
