@@ -1,9 +1,10 @@
 import Footer from './Footer';
 import Header from './Header';
 import HeroSection from './HeroSection';
-import PostForm from './PostForm';
-import PostImgSection from './PostImgSection';
-import PostSection from './PostSection';
 import AuthLayout from './AuthLayout';
+import BlogForm from './BlogForm';
+import BlogSection from './BlogSection';
+import WorkForm from './WorkForm';
+import WorkSection from './WorkSection';
 
-export { Footer, AuthLayout, Header, HeroSection, PostForm, PostImgSection, PostSection };
+export { Footer, AuthLayout, Header, HeroSection, BlogForm, BlogSection, WorkForm, WorkSection };
