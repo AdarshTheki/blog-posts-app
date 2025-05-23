@@ -57,7 +57,7 @@ const BlogForm = ({ blogData }) => {
   };
 
   return (
-    <form onSubmit={submitHandler} className='space-y-5 py-10'>
+    <form onSubmit={submitHandler} className='flex flex-col gap-5 py-5 main-container'>
       <Text>
         <strong>Auto create slug:</strong> <span>{postData.slug}</span>
       </Text>
@@ -120,7 +120,12 @@ const BlogForm = ({ blogData }) => {
           }}
         />
       </div>
-      <Button className=' bg-green-600 text-white rounded'>Submit Post</Button>
+      <div className='flex gap-5'>
+        <Button className=' bg-green-600 text-white rounded'>Submit Post</Button>
+        <Button onClick={() => navigate('/blog')} className='bg-red-600 text-white rounded'>
+          Cancel
+        </Button>
+      </div>
     </form>
   );
 };

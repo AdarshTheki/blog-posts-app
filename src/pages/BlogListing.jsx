@@ -17,9 +17,10 @@ const Blog = () => {
       try {
         setLoading(true);
         const res = await blogService.getAllBlogPosts();
-        if (res.total > 1) {
+        if (res.total > 0) {
           setData(res.documents);
         }
+        console.log(res.total);
       } catch (error) {
         console.log(error);
       } finally {

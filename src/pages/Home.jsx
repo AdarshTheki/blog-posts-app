@@ -2,8 +2,11 @@
 import { NavLink } from 'react-router-dom';
 import { HeroSection } from '../components';
 import { Text } from '../utils';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
+  const user = useSelector((state) => state);
+  console.log(user);
   return (
     <div className='space-y-4'>
       <HeroSection />
