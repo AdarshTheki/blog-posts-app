@@ -16,7 +16,7 @@ const Home = () => {
       <div className='main-container'>
         <div className='sm:grid grid-cols-2 pt-10 pb-5 items-center justify-between w-full'>
           <div className='space-y-2'>
-            <Text as='h2' className='font-semibold capitalize text-4xl'>
+            <Text as='h2' className='font-semibold capitalize sm:text-4xl text-3xl'>
               Hi, I am Adarsh, <br />
               Creative Technologist
             </Text>
@@ -30,13 +30,17 @@ const Home = () => {
             </Text>
           </div>
           <div className='w-full'>
-            <img src={'/owner.png'} alt='owner image' className='block mx-auto w-2/5 ' />
+            <img
+              src={'/owner.jpg'}
+              alt='owner image'
+              className='block mx-auto rounded-full max-h-[280px] max-sm:pt-3'
+            />
           </div>
         </div>
         <Button
           onClick={handleDownload}
           leftIcon={<IoMdDownload />}
-          className='text-white bg-primary'>
+          className='text-white bg-primary max-sm:w-fit max-sm:mx-auto'>
           Download Resume
         </Button>
       </div>
