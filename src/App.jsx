@@ -42,7 +42,7 @@ const App = () => {
             <Route path='/contact' element={<Contact />} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
-            <Route element={<AuthLayout authentication />}>
+            <Route element={<AuthLayout />}>
               <Route path='/create/blog' element={<BlogCreate />} />
               <Route path='/create/blog/:slug' element={<BlogUpdate />} />
             </Route>

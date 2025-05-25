@@ -10,7 +10,7 @@ import { Button } from '../utils';
 
 const Header = () => {
   const dispatch = useDispatch();
-  const { status } = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.auth);
   const [loading, setLoading] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -117,7 +117,7 @@ const Header = () => {
               Contact
             </NavLink>
           </li>
-          {!status ? (
+          {!user?.userData?.$id ? (
             <li>
               <NavLink
                 to='/login'
