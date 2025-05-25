@@ -4,6 +4,7 @@ import { Editor } from '@tinymce/tinymce-react';
 import { blogService } from '../appwrite';
 import { Button, Text } from '../utils';
 import PropTypes from 'prop-types';
+import { config } from '../constant';
 
 const BlogForm = ({ blogData }) => {
   const editorRef = useRef(null);
@@ -84,9 +85,10 @@ const BlogForm = ({ blogData }) => {
           onChange={changeHandler}
         />
       </div>
+      {/* '4vwhnn90fvqtkijfopg3yzjydcywqxgw2kzks79fgkqie9q5' */}
       <div>
         <Editor
-          apiKey='4vwhnn90fvqtkijfopg3yzjydcywqxgw2kzks79fgkqie9q5'
+          apiKey={config.TinyApiKey}
           onInit={(_evt, editor) => (editorRef.current = editor)}
           initialValue={postData.content}
           init={{
