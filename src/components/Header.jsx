@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { MdLightMode } from 'react-icons/md';
 import { FaBars } from 'react-icons/fa';
@@ -60,11 +60,6 @@ const Header = () => {
               </NavLink>
             </li>
             <li className='py-2'>
-              <NavLink to='/work' style={styles} className='text-white'>
-                work
-              </NavLink>
-            </li>
-            <li className='py-2'>
               <NavLink to='/contact' style={styles} className='text-white'>
                 Contact
               </NavLink>
@@ -110,11 +105,6 @@ const Header = () => {
           <li>
             <NavLink to='/' style={styles} className='hover:text-primary'>
               Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/work' style={styles} className='hover:text-primary'>
-              Work
             </NavLink>
           </li>
           <li>

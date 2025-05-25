@@ -3,9 +3,10 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { FaRegEdit, FaRegTrashAlt } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
+
 import { blogService } from '../appwrite';
 import { formattedDate, Text, DeleteModel } from '../utils';
-import { useState } from 'react';
 
 const BlogSection = ({ $id, heading, $createdAt, type, content }) => {
   const user = useSelector((state) => state?.auth?.userData);
@@ -23,17 +24,21 @@ const BlogSection = ({ $id, heading, $createdAt, type, content }) => {
 
   return (
     <div className='mb-5 border-b relative'>
-      <div className='flex gap-5 justify-between items-center'>
-        <Text as='h2' className='text-xl font-bold'>
-          # {heading}
+      <div className='flex gap-5 justify-between items-center relative'>
+        <Text as='h2' className='text-3xl font-bold'>
+          {heading}
         </Text>
         {user?.labels && user?.labels?.includes('admin') && (
-          <div className='flex gap-4 items-center'>
-            <button onClick={() => setIsOpen(true)} className='text-primary font-bold'>
-              <FaRegTrashAlt size={24} />
+          <div className='flex gap-4 items-center absolute top-2 right-0'>
+            <button
+              onClick={() => setIsOpen(true)}
+              className='text-primary font-bold bg-white p-2 rounded-full'>
+              <FaRegTrashAlt size={20} />
             </button>
-            <NavLink to={`/create/blog/${$id}`} className='text-secondary font-bold'>
-              <FaRegEdit size={24} />
+            <NavLink
+              to={`/create/blog/${$id}`}
+              className='text-secondary font-bold bg-white p-2 rounded-full'>
+              <FaRegEdit size={20} />
             </NavLink>
           </div>
         )}

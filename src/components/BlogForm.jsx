@@ -25,6 +25,7 @@ const BlogForm = ({ blogData }) => {
     if (value && typeof value === 'string')
       return value
         .trim()
+        .slice(0, 30)
         .toLowerCase()
         .replace(/[^a-zA-Z\d\s]+/g, '-')
         .replace(/\s/g, '-');

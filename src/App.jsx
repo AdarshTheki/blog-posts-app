@@ -13,8 +13,6 @@ import {
   BlogListing,
   BlogCreate,
   BlogUpdate,
-  WorkListing,
-  WorkCreate,
 } from './pages';
 
 const App = () => {
@@ -24,8 +22,7 @@ const App = () => {
     async function getUserData() {
       try {
         const user = await authService.getCurrentUser();
-        const currUser = user.$id ? user : {};
-        dispatch(loginUser(currUser));
+        dispatch(loginUser(user?.$id ? user : {}));
       } catch (error) {
         dispatch(logoutUser());
         console.log(error);
@@ -42,14 +39,12 @@ const App = () => {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/blog' element={<BlogListing />} />
-            <Route path='/work' element={<WorkListing />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route element={<AuthLayout authentication />}>
               <Route path='/create/blog' element={<BlogCreate />} />
               <Route path='/create/blog/:slug' element={<BlogUpdate />} />
-              <Route path='/create/work' element={<WorkCreate />} />
             </Route>
             <Route path='*' element={<NotFoundPage />} />
           </Routes>

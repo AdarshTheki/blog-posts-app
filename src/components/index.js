@@ -7,4 +7,4 @@ import BlogSection from './BlogSection';
 import WorkForm from './WorkForm';
 import WorkSection from './WorkSection';
 
-export { Footer, AuthLayout, Header, HeroSection, BlogForm, BlogSection, WorkForm, WorkSection };
+export { Footer, AuthLayout, Header, HeroSection, WorkForm, BlogForm, BlogSection, WorkSection };
